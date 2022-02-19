@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d217357"],{c66d:function(e,t,n){"use strict";n.r(t);var a=function(){var e=this,t=e.$createElement,n=e._self._c||t;return n("div",{staticClass:"about"},[n("GithubProfileReadMe",{attrs:{username:"MuhammedOzby"}})],1)},u=[],c=n("5705"),s={name:"Profile",components:{GithubProfileReadMe:c["a"]}},i=s,l=n("0c7c"),o=Object(l["a"])(i,a,u,!1,null,null,null);t["default"]=o.exports}}]);
+//# sourceMappingURL=chunk-2d217357.85c76704.js.map
