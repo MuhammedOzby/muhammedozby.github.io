@@ -1,1 +1,1 @@
-#Bu bir deneme yazısıdır.
+# Bu bir deneme yazısıdır.
