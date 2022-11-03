@@ -40,12 +40,18 @@ class MakalePage extends Component<
                 <SyntaxHighlighter
                   children={String(children).replace(/\n$/, "")}
                   language={match[1]}
+                  PreTag="div"
                 />
               ) : (
                 <code className={className}>{children}</code>
               );
             },
           }}
+        />
+        <SyntaxHighlighter
+          children={"console.log()"}
+          language={"javascript"}
+          PreTag="div"
         />
       </div>
     );
