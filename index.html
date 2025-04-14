@@ -1,400 +1,343 @@
 <!DOCTYPE html>
 <html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Muhammed Mustafa ÖZBAY - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <style>
+      /* Add this rule for the html element */
+      html {
+        scroll-behavior: smooth; /* Optional: keeps the scroll animation smooth between snaps */
+      }
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Muhammed Mustafa ÖZBAY - Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet" />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
-  <style>
-    body {
-      font-family: "Fira Code", monospace;
-      margin: 0 auto;
-      max-width: 98%;
-      /* Slightly increased for potentially wider content */
-      padding: 20px;
-      line-height: 1.6;
-      background-color: #f8f0e3;
-      /* Kept the updated background */
-      color: #333;
-      /* Kept the updated text color */
-      transition: background-color 0.3s ease, color 0.3s ease;
-      /* Added transition for smooth color changes */
-    }
+      body {
+        font-family: 'Fira Code', monospace;
+        margin: 0 auto;
+        max-width: 98%;
+        padding: 20px;
+        line-height: 1.6;
+        background-color: #f8f0e3;
+        color: #333;
+        transition: background-color 0.3s ease, color 0.3s ease;
 
-    body:hover {
-      background-color: #f2e8d9;
-      /* Slightly darker on hover */
-    }
+        /* --- Scroll Snap Container --- */
+        /* Enable vertical snapping, mandatory means it MUST snap */
+        scroll-snap-type: y mandatory;
+        /* Ensure the body itself can scroll if content overflows */
+        /* overflow-y: scroll; /* Usually default, but can be explicit */
+      }
 
-    body:hover,
-    body:focus-within {
-      color: #222;
-      /* Darker text on hover/focus */
-    }
+      body:hover {
+        background-color: #f2e8d9;
+      }
 
-    header {
-      text-align: center;
-      margin-bottom: 40px;
-      /* Increased bottom margin */
-    }
+      body:hover,
+      body:focus-within {
+        color: #222;
+      }
 
-    header p {
-      margin-bottom: 15px;
-      /* Add space below title */
-    }
+      header {
+        text-align: center;
+        margin-bottom: 40px; /* Keep existing margin or adjust as needed */
 
-    .contact-links {
-      margin-bottom: 15px;
-    }
+        /* --- Scroll Snap Child --- */
+        scroll-snap-align: start; /* Snap to the start of this element */
 
-    .contact-links a,
-    .youtube-links a {
-      margin: 0 8px;
-      /* Add spacing between links */
-    }
-
-    h1 {
-      font-size: 2.5em;
-      margin-bottom: 10px;
-      color: #4a4a4a;
-      /* Kept the updated heading color */
-    }
-
-    h2 {
-      font-size: 1.8em;
-      margin-top: 20px;
-      margin-bottom: 15px;
-      /* Added bottom margin */
-      color: #4a4a4a;
-      /* Kept the updated heading color */
-      border-bottom: 1px solid #ddd;
-      /* Add a subtle separator */
-      padding-bottom: 5px;
-      /* Space below heading text */
-    }
-
-    h3 {
-      font-size: 1.4em;
-      /* Slightly smaller */
-      margin-top: 15px;
-      margin-bottom: 8px;
-      /* Adjusted margin */
-      color: #4a4a4a;
-      /* Kept the updated heading color */
-    }
-
-    h4 {
-      font-size: 1.1em;
-      margin-top: 10px;
-      margin-bottom: 5px;
-      color: #555;
-      /* Slightly lighter color for sub-sub headings */
-    }
-
-    section {
-      margin-bottom: 30px;
-      background-color: #fcf6e9;
-      /* Kept the updated section background */
-      padding: 20px;
-      border-radius: 5px;
-      border: 1px solid #ddd;
-      /* Kept the border */
-    }
-
-    .experience-item,
-    .project,
-    .consulting-item,
-    .certificate-item,
-    .education-item {
-      margin-bottom: 20px;
-      /* Increased spacing */
-      padding-bottom: 15px;
-      /* Add padding below item */
-      border-bottom: 1px dashed #eee;
-      /* Add subtle separator between items */
-    }
-
-    .experience-item:last-child,
-    .project:last-child,
-    .consulting-item:last-child,
-    .certificate-item:last-child,
-    .education-item:last-child {
-      border-bottom: none;
-      /* Remove border for the last item */
-      margin-bottom: 0;
-      padding-bottom: 0;
-    }
-
-    .project h3,
-    .consulting-item h3,
-    .experience-item h3,
-    .education-item h3 {
-      margin-bottom: 5px;
-    }
-
-    .project p,
-    .consulting-item p,
-    .experience-item p,
-    .education-item p {
-      margin-bottom: 10px;
-    }
-
-    .project ul,
-    .consulting-item ul {
-      margin-top: 10px;
-      margin-left: 20px;
-      /* Indent list */
-    }
-
-    .project ul li,
-    .consulting-item ul li {
-      margin-bottom: 5px;
-    }
-
-    .dates {
-      font-style: italic;
-      color: #666;
-      font-size: 0.9em;
-      margin-bottom: 10px;
-    }
-
-    blockquote {
-      border-left: 4px solid #ccc;
-      margin: 15px 0;
-      padding: 10px 15px;
-      background-color: #f9f9f9;
-      font-style: italic;
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 30px;
-      padding-top: 20px;
-      border-top: 1px solid #ddd;
-      font-size: 0.9em;
-      color: #666;
-    }
-
-    a {
-      color: #0077cc;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
-</head>
-
-<body class="animate__animated animate__fadeInDown">
-  <header style="
-        height: 100vh;
+        /* --- Moved from inline styles --- */
+        height: 100vh; /* Crucial for full-page section feel */
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-      ">
-    <h1>Muhammed Mustafa ÖZBAY</h1>
-    <p>NOC System NOC Sistem Uzmanı - IST Systems</p>
-    <div class="contact-links">
-      <a href="mailto:muhammed.ozby@outlook.com">Mail</a> -
-      <a href="https://github.com/muhammedOzby" target="_blank" rel="noopener noreferrer">Github</a>
-      -
-      <a href="https://www.linkedin.com/in/muhammed-mustafa-ozbay/" target="_blank"
-        rel="noopener noreferrer">LinkedIn</a>
-      -
-      <a href="https://twitter.com/KaranlikDiyar" target="_blank" rel="noopener noreferrer">Twitter</a>
-      -
-      <a href="https://stackoverflow.com/users/8637049/siyah-prens" target="_blank"
-        rel="noopener noreferrer">StackOverflow</a>
-      -
-      <a href="https://www.hackerrank.com/muhammed_ozby" target="_blank" rel="noopener noreferrer">HackerRank</a>
-    </div>
-    <div class="youtube-links">
-      <strong>Youtube Kanalları:</strong>
-      <a href="https://www.youtube.com/@muhammedozby" target="_blank" rel="noopener noreferrer">Muhammed Mustafa
-        ÖZBAY</a>
-      -
-      <a href="https://www.youtube.com/@merdivenaltiyazilmci" target="_blank" rel="noopener noreferrer">Merdiven altı
-        yazılımcı</a>
-    </div>
-  </header>
+        /* Add padding if needed now that body padding might not apply inside 100vh */
+        padding: 20px;
+        box-sizing: border-box; /* Include padding in height calculation */
+      }
 
-  <section>
-    <blockquote>
-      Linux sistem yönetimi, ağ operasyonları (Cisco, L2), konteyner (Docker) ve sanallaştırma teknolojilerinde yetkin, deneyimli bir NOC Sistem Uzmanı'yım. Altyapıların sorunsuz çalışmasını sağlarken otomasyon ve verimli çözümler geliştirmeye odaklanıyorum. Özellikle Linux tabanlı projelerimi ve teknik detayları portfolyomda bulabilirsiniz.
-    </blockquote>
-  </section>
-  
-  <section>
-    <h2>Hakkımda</h2>
-    <p>
-      Uzun süredir <strong>NOC Sistem Uzmanı</strong> olarak görev yapmaktayım. Bu roldeki temel sorumluluklarım geniş
-      bir yelpazeyi kapsamakta olup, başlıcaları şunlardır:
-    <ul>
-      <li>Cisco cihazlarda Layer 2 (anahtarlama) desteği sağlamak.</li>
-      <li>Ağ üzerindeki cihazların genel denetimini ve kontrolünü gerçekleştirmek.</li>
-      <li>802.1X, LDAP (Active Directory) ve Cisco ISE gibi platformlar aracılığıyla kimlik doğrulama ve erişim kontrolü
-        süreçlerini desteklemek ve izlemek.</li>
-      <li>Sunucuları sürekli izleyerek disk alanı temizleme, kaynak takibi ve kritik kaynak kullanım durumlarında
-        müdahale gibi birinci seviye işlemleri yürütmek.</li>
-      <li>Layer 2 anahtarlama yapılandırmalarını denetlemek, kontrol etmek ve düzenlemek.</li>
-    </ul>
-    </p>
-    <p>
-      Bu temel NOC görevlerine ek olarak, ağ yönetimi (Proxy, NAT, VPN yapılandırması), sistem yönetimi (AlmaLinux,
-      Rocky Linux, openSUSE vb. Linux dağıtımları; son kullanıcı tarafında Arch tabanlı Endeavour OS) ve konteyner
-      teknolojileri (aktif Docker kullanımı, başlangıç seviyesinde Kubernetes) alanlarında da yetkinliklere sahibim.
-    </p>
-    <p>
-      Geliştirme becerilerimi (ağırlıklı olarak TypeScript ile backend, zaman zaman React ile frontend) özellikle NOC
-      operasyonlarını destekleyen otomasyon çözümleri ve dahili araçlar geliştirmek için aktif olarak kullanıyorum.
-    </p>
-    <p>
-      Ana görevimin yanı sıra, geçmişte tam yığın (full-stack) geliştirici olarak bireysel danışmanlık projeleri de
-      yürüttüm. Bu projelerde ağ ve sistem bilgimi kullanarak müşterilerime özel çözümler sundum (örn: NAS, SAMBA, VPN,
-      Firewall kurulumları; KVM, IDRAC, RAID yapılandırmaları, donanım montajı).
-    </p>
-    <p>
-      Kariyerimde bir sonraki adımlar olarak DevOps ve ardından NetDevOps alanlarında uzmanlaşmayı hedefliyorum. Bu
-      alanlardaki bireysel çalışmalarımı ve projelerimi GitHub profilimde paylaşıyorum.
-    </p>
-    <hr />
-    <h4>Summary (English)</h4>
-    <p>
-      I have extensive experience working as a <strong>NOC System Specialist</strong>. My primary responsibilities in
-      this role include:
-    <ul>
-      <li>Providing Layer 2 switching support, particularly on Cisco devices.</li>
-      <li>Auditing and controlling devices across the network.</li>
-      <li>Supporting and monitoring authentication and access control via platforms such as 802.1X, LDAP (Active
-        Directory), and Cisco ISE.</li>
-      <li>Performing continuous server monitoring and first-level interventions (e.g., disk space cleanup, resource
-        tracking, addressing critical resource usage).</li>
-      <li>Auditing, controlling, and adjusting Layer 2 switch configurations.</li>
-    </ul>
-    </p>
-    <p>
-      Beyond these core NOC duties, I also have experience configuring technologies like Proxy, NAT, and VPN. My system
-      administration background covers various Linux distributions (AlmaLinux, Rocky Linux, openSUSE, etc.). I actively
-      use Docker for containerization and have beginner-level familiarity with Kubernetes.
-    </p>
-    <p>
-      I leverage my development skills (primarily TypeScript for backend, occasionally React for frontend) to build
-      automation scripts and internal tools that support NOC operations.
-    </p>
-    <p>
-      Alongside my primary role, I have also undertaken freelance projects as a full-stack developer, providing custom
-      solutions using my network and system expertise (e.g., system/network setup including NAS/SAMBA/VPN/Firewalls, and
-      device management like KVM/IDRAC/RAID).
-    </p>
-    <p>
-      My future career goals are focused on specializing in DevOps and subsequently NetDevOps. I share my personal
-      projects related to these fields on my GitHub profile.
-    </p>
-  </section>
+      header p {
+        margin-bottom: 15px;
+      }
 
-  <section>
-    <h2>Eğitim Bilgileri</h2>
-    <div class="education-item">
-      <h3>
-        Isparta Uygulamalı Bilimler Üniversitesi - ULUBORLU SELAHATTİN KARASOY
-        MESLEK YÜKSEKOKULU
-      </h3>
-      <p>Ön lisans / Bilgisayar programcılığı</p>
-    </div>
-  </section>
+      .contact-links {
+        margin-bottom: 15px;
+      }
 
-  <section>
-    <h2>Deneyim</h2>
-    <div class="experience-item">
-      <h3>IST Systems - NOC Sistem Uzmanı</h3>
-      <p class="dates">Nis 2023 - Devam ediyorum</p>
+      .contact-links a,
+      .youtube-links a {
+        margin: 0 8px;
+      }
+
+      h1 {
+        font-size: 2.5em;
+        margin-bottom: 10px;
+        color: #4a4a4a;
+      }
+
+      h2 {
+        font-size: 1.8em;
+        margin-top: 20px;
+        margin-bottom: 15px;
+        color: #4a4a4a;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 5px;
+      }
+
+      h3 {
+        font-size: 1.4em;
+        margin-top: 15px;
+        margin-bottom: 8px;
+        color: #4a4a4a;
+      }
+
+      h4 {
+        font-size: 1.1em;
+        margin-top: 10px;
+        margin-bottom: 5px;
+        color: #555;
+      }
+
+      section {
+        margin-bottom: 30px; /* Keep or adjust spacing */
+        background-color: #fcf6e9;
+        padding: 20px;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+
+        /* --- Scroll Snap Child --- */
+        scroll-snap-align: start; /* Snap to the start of this element */
+
+        /* Optional: If you want *all* sections to fill the viewport height */
+        /* min-height: 100vh; */
+        /* display: flex; */
+        /* flex-direction: column; */
+        /* justify-content: center; */
+        /* box-sizing: border-box; */ /* Include padding in height calculation */
+      }
+
+      /* ... rest of your existing styles ... */
+
+      footer {
+        text-align: center;
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px solid #ddd;
+        font-size: 0.9em;
+        color: #666;
+
+        /* --- Scroll Snap Child (Optional) --- */
+        /* Decide if the footer should also be a snap point */
+        /* scroll-snap-align: start; */
+      }
+
+      a {
+        color: #0077cc;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+
+  <body class="animate__animated animate__fadeInDown">
+    <header style="height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center">
+      <h1>Muhammed Mustafa ÖZBAY</h1>
+      <p>NOC System NOC Sistem Uzmanı - IST Systems</p>
+      <div class="contact-links">
+        <a href="mailto:muhammed.ozby@outlook.com">Mail</a>
+        -
+        <a href="https://github.com/muhammedOzby" target="_blank" rel="noopener noreferrer">Github</a>
+        -
+        <a href="https://www.linkedin.com/in/muhammed-mustafa-ozbay/" target="_blank" rel="noopener noreferrer"
+          >LinkedIn</a
+        >
+        -
+        <a href="https://twitter.com/KaranlikDiyar" target="_blank" rel="noopener noreferrer">Twitter</a>
+        -
+        <a href="https://stackoverflow.com/users/8637049/siyah-prens" target="_blank" rel="noopener noreferrer"
+          >StackOverflow</a
+        >
+        -
+        <a href="https://www.hackerrank.com/muhammed_ozby" target="_blank" rel="noopener noreferrer">HackerRank</a>
+      </div>
+      <div class="youtube-links">
+        <strong>Youtube Kanalları:</strong>
+        <a href="https://www.youtube.com/@muhammedozby" target="_blank" rel="noopener noreferrer"
+          >Muhammed Mustafa ÖZBAY</a
+        >
+        -
+        <a href="https://www.youtube.com/@merdivenaltiyazilmci" target="_blank" rel="noopener noreferrer"
+          >Merdiven altı yazılımcı</a
+        >
+      </div>
+    </header>
+
+    <section>
+      <blockquote style="align-content: center; text-align: center">
+        Linux ve ağ teknolojilerine (Cisco, L2, güvenlik protokolleri) hakim, TypeScript ile otomasyon ve destek
+        araçları geliştiren, Docker ve izleme (Prometheus, Grafana) konularında yetkinliğini artıran ve kariyerini
+        DevOps/Sistem uzmanlığı yönünde aktif olarak ilerleten bir NOC Sistem Uzmanı.
+      </blockquote>
+    </section>
+
+    <section>
+      <h2>Hakkımda</h2>
       <p>
-        NOC uzmanlığı ve Sistem uzmanlığı olmak üzere iki ayrı kolda
-        görevlerimi yerine getirmekteyim. NOC uzmanlığında kritik durumları
-        yönlendirme, olaylara ilk müdahaleyi sağlama ve saha desteği
-        mevcudiyeti ile L1 seviye network müdahaleleri. Sistem uzmanı olarak
-        L1 Sistem müdahaleleri, hızlı müdahale gereken durumlarda ilk
-        müdahale, tanımlı görevler başlıca olmak üzere bir çok işi yerine
-        getirmekteyim.
+        Uzun süredir <strong>NOC Sistem Uzmanı</strong> olarak görev yapmaktayım. Bu roldeki temel sorumluluklarım geniş
+        bir yelpazeyi kapsamakta olup, başlıcaları şunlardır:
       </p>
-    </div>
-    <div class="experience-item">
-      <h3>Rising Dijital Teknoloji LTD. ŞTİ. - Yazılım Geliştirici</h3>
-      <p class="dates">Nis 2022 - Eylül 2022</p>
+      <ul>
+        <li>Cisco cihazlarda Layer 2 (anahtarlama) desteği sağlamak.</li>
+        <li>Ağ üzerindeki cihazların genel denetimini ve kontrolünü gerçekleştirmek.</li>
+        <li>
+          802.1X, LDAP (Active Directory) ve Cisco ISE gibi platformlar aracılığıyla kimlik doğrulama ve erişim kontrolü
+          süreçlerini desteklemek ve izlemek.
+        </li>
+        <li>
+          Sunucuları sürekli izleyerek disk alanı temizleme, kaynak takibi ve kritik kaynak kullanım durumlarında
+          müdahale gibi birinci seviye işlemleri yürütmek.
+        </li>
+        <li>Layer 2 anahtarlama yapılandırmalarını denetlemek, kontrol etmek ve düzenlemek.</li>
+      </ul>
       <p>
-        Şirket ihtiyaçlarına yönelik; rapor panelleri (Dashboard), yönetim
-        araçları, sistem (VPN, sunucu vb.) kurulumları ve full stack olarak
-        yazılımlar/araçlar ürettim. Kısaca bahsedebileceklerim; şirketim
-        sistemlerini izleyebileceği çeşitli raporlama sayfaları, ağ
-        sistemleri, uzak cihaz yönetim ve kontrolü (SSH, özel çözümler
-        geliştirme), sunucu kurulumları, otomasyon yönetim araçları,
-        uyarı-bildiri sistemleri, işlem kontrol ve müdahale araçları
-        geliştirdim.
+        Bu temel NOC görevlerine ek olarak, ağ yönetimi (Proxy, NAT, VPN yapılandırması), sistem yönetimi (AlmaLinux,
+        Rocky Linux, openSUSE vb. Linux dağıtımları; son kullanıcı tarafında Arch tabanlı Endeavour OS) ve konteyner
+        teknolojileri (aktif Docker kullanımı, başlangıç seviyesinde Kubernetes) alanlarında da yetkinliklere sahibim.
       </p>
-    </div>
-    <div class="experience-item">
-      <h3>
-        TeknoBoss Teknoloji ve Danışmanlık Hizmetleri Ltd. Şti. -
-        Geliştirici/Tekniker
-      </h3>
-      <p class="dates">Ağu 2018 - Ocak 2020</p>
       <p>
-        Ufak ölçekli uygulama geliştirme ve sunucu kurulum hizmetleri, sistem
-        izleme (Zabbix, PRTG) uygulamalarında teknik çalışmalar. Teknikerlik
-        görevinde Point to Point anten kurulumları, Zabbix dışında PRTG
-        kurulumu, şirket ihtiyaçlarına yönelik web uygulamaları. Paneller ve
-        sıcaklık algılama cihazı (Sunucu ve donanım ikisi birlikte).
+        Geliştirme becerilerimi (ağırlıklı olarak TypeScript ile backend, zaman zaman React ile frontend) özellikle NOC
+        operasyonlarını destekleyen otomasyon çözümleri ve dahili araçlar geliştirmek için aktif olarak kullanıyorum.
       </p>
-    </div>
-    <div class="experience-item">
-      <h3>
-        Dal Bilgi Teknolojileri ve Bilişim Sistemleri Tic. A.Ş. -
-        Geliştirici/Tekniker
-      </h3>
-      <p class="dates">Tem 2017 - Tem 2018</p>
       <p>
-        Veri merkezinde teknikerlik ve küçük ölçekli uygulama geliştirme.
-        Teknikerlik unvanında ağ kablolama, rack mount sistem kurulumu,
-        donanım montaj, donanım güncelleme (BIOS update, Linux tabanlı
-        sistemlerde sürücü kurulumu), ağ ve sistem izleme görevlerini yerine
-        getirdim. Geliştirici unvanıyla PHP dili ile uygulamalar geliştirdim.
-        Zabbix ile monitoring sistemleri geliştirdim (Kurulum dışında script,
-        template geliştirme). Çeşitli entegrasyonlar ve server reconfiguration
-        işlemleri yaptım.
+        Ana görevimin yanı sıra, geçmişte tam yığın (full-stack) geliştirici olarak bireysel danışmanlık projeleri de
+        yürüttüm. Bu projelerde ağ ve sistem bilgimi kullanarak müşterilerime özel çözümler sundum (örn: NAS, SAMBA,
+        VPN, Firewall kurulumları; KVM, IDRAC, RAID yapılandırmaları, donanım montajı).
       </p>
-    </div>
-  </section>
-
-  <section>
-    <h2>Sertifikalar</h2>
-    <div class="certificate-item">
-      <h3>HackerRank - JavaScript (Basic) Certificate</h3>
       <p>
-        <a href="https://www.hackerrank.com/certificates/a9201364afad" target="_blank" rel="noopener noreferrer">Dijital
-          Sertifika sayfası</a>
+        Kariyerimde bir sonraki adımlar olarak DevOps ve ardından NetDevOps alanlarında uzmanlaşmayı hedefliyorum. Bu
+        alanlardaki bireysel çalışmalarımı ve projelerimi GitHub profilimde paylaşıyorum.
       </p>
-    </div>
-  </section>
+      <hr />
+      <h4>Summary (English)</h4>
+      <p>
+        I have extensive experience working as a
+        <strong>NOC System Specialist</strong>. My primary responsibilities in this role include:
+      </p>
+      <ul>
+        <li>Providing Layer 2 switching support, particularly on Cisco devices.</li>
+        <li>Auditing and controlling devices across the network.</li>
+        <li>
+          Supporting and monitoring authentication and access control via platforms such as 802.1X, LDAP (Active
+          Directory), and Cisco ISE.
+        </li>
+        <li>
+          Performing continuous server monitoring and first-level interventions (e.g., disk space cleanup, resource
+          tracking, addressing critical resource usage).
+        </li>
+        <li>Auditing, controlling, and adjusting Layer 2 switch configurations.</li>
+      </ul>
+      <p>
+        Beyond these core NOC duties, I also have experience configuring technologies like Proxy, NAT, and VPN. My
+        system administration background covers various Linux distributions (AlmaLinux, Rocky Linux, openSUSE, etc.). I
+        actively use Docker for containerization and have beginner-level familiarity with Kubernetes.
+      </p>
+      <p>
+        I leverage my development skills (primarily TypeScript for backend, occasionally React for frontend) to build
+        automation scripts and internal tools that support NOC operations.
+      </p>
+      <p>
+        Alongside my primary role, I have also undertaken freelance projects as a full-stack developer, providing custom
+        solutions using my network and system expertise (e.g., system/network setup including NAS/SAMBA/VPN/Firewalls,
+        and device management like KVM/IDRAC/RAID).
+      </p>
+      <p>
+        My future career goals are focused on specializing in DevOps and subsequently NetDevOps. I share my personal
+        projects related to these fields on my GitHub profile.
+      </p>
+    </section>
 
-  <section>
-    <h2>Yabancı Dil</h2>
-    <h3>İngilizce</h3>
-    <p>Okuma/Yazma - A2</p>
-    <p>Konuşma - A2</p>
-  </section>
+    <section>
+      <h2>Eğitim Bilgileri</h2>
+      <div class="education-item">
+        <h3>Isparta Uygulamalı Bilimler Üniversitesi - ULUBORLU SELAHATTİN KARASOY MESLEK YÜKSEKOKULU</h3>
+        <p>Ön lisans / Bilgisayar programcılığı</p>
+      </div>
+    </section>
 
-  <footer>
-    <p>&copy; 2024 Muhammed Mustafa ÖZBAY. Tüm hakları saklıdır.</p>
-  </footer>
-</body>
+    <section>
+      <h2>Deneyim</h2>
+      <div class="experience-item">
+        <h3>IST Systems - NOC Sistem Uzmanı</h3>
+        <p class="dates">Nis 2023 - Devam ediyorum</p>
+        <p>
+          NOC uzmanlığı ve Sistem uzmanlığı olmak üzere iki ayrı kolda görevlerimi yerine getirmekteyim. NOC
+          uzmanlığında kritik durumları yönlendirme, olaylara ilk müdahaleyi sağlama ve saha desteği mevcudiyeti ile L1
+          seviye network müdahaleleri. Sistem uzmanı olarak L1 Sistem müdahaleleri, hızlı müdahale gereken durumlarda
+          ilk müdahale, tanımlı görevler başlıca olmak üzere bir çok işi yerine getirmekteyim.
+        </p>
+      </div>
+      <div class="experience-item">
+        <h3>Rising Dijital Teknoloji LTD. ŞTİ. - Yazılım Geliştirici</h3>
+        <p class="dates">Nis 2022 - Eylül 2022</p>
+        <p>
+          Şirket ihtiyaçlarına yönelik; rapor panelleri (Dashboard), yönetim araçları, sistem (VPN, sunucu vb.)
+          kurulumları ve full stack olarak yazılımlar/araçlar ürettim. Kısaca bahsedebileceklerim; şirketim sistemlerini
+          izleyebileceği çeşitli raporlama sayfaları, ağ sistemleri, uzak cihaz yönetim ve kontrolü (SSH, özel çözümler
+          geliştirme), sunucu kurulumları, otomasyon yönetim araçları, uyarı-bildiri sistemleri, işlem kontrol ve
+          müdahale araçları geliştirdim.
+        </p>
+      </div>
+      <div class="experience-item">
+        <h3>TeknoBoss Teknoloji ve Danışmanlık Hizmetleri Ltd. Şti. - Geliştirici/Tekniker</h3>
+        <p class="dates">Ağu 2018 - Ocak 2020</p>
+        <p>
+          Ufak ölçekli uygulama geliştirme ve sunucu kurulum hizmetleri, sistem izleme (Zabbix, PRTG) uygulamalarında
+          teknik çalışmalar. Teknikerlik görevinde Point to Point anten kurulumları, Zabbix dışında PRTG kurulumu,
+          şirket ihtiyaçlarına yönelik web uygulamaları. Paneller ve sıcaklık algılama cihazı (Sunucu ve donanım ikisi
+          birlikte).
+        </p>
+      </div>
+      <div class="experience-item">
+        <h3>Dal Bilgi Teknolojileri ve Bilişim Sistemleri Tic. A.Ş. - Geliştirici/Tekniker</h3>
+        <p class="dates">Tem 2017 - Tem 2018</p>
+        <p>
+          Veri merkezinde teknikerlik ve küçük ölçekli uygulama geliştirme. Teknikerlik unvanında ağ kablolama, rack
+          mount sistem kurulumu, donanım montaj, donanım güncelleme (BIOS update, Linux tabanlı sistemlerde sürücü
+          kurulumu), ağ ve sistem izleme görevlerini yerine getirdim. Geliştirici unvanıyla PHP dili ile uygulamalar
+          geliştirdim. Zabbix ile monitoring sistemleri geliştirdim (Kurulum dışında script, template geliştirme).
+          Çeşitli entegrasyonlar ve server reconfiguration işlemleri yaptım.
+        </p>
+      </div>
+    </section>
 
+    <section>
+      <h2>Sertifikalar</h2>
+      <div class="certificate-item">
+        <h3>HackerRank - JavaScript (Basic) Certificate</h3>
+        <p>
+          <a href="https://www.hackerrank.com/certificates/a9201364afad" target="_blank" rel="noopener noreferrer"
+            >Dijital Sertifika sayfası</a
+          >
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Yabancı Dil</h2>
+      <h3>İngilizce</h3>
+      <div>
+        <p>Okuma/Yazma - A2</p>
+        <p>Konuşma - A2</p>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2024 Muhammed Mustafa ÖZBAY. Tüm hakları saklıdır.</p>
+    </footer>
+  </body>
 </html>
